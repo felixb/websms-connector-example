@@ -80,8 +80,7 @@ public class ConnectorExample extends Connector {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected final void doBootstrap(final Context context, final Intent intent)
-			throws WebSMSException {
+	protected final void doBootstrap(final Context context, final Intent intent) {
 		// TODO: bootstrap settings.
 		// If you don't need to bootstrap any config, remove this method.
 		Log.i(TAG, "bootstrap");
@@ -98,8 +97,7 @@ public class ConnectorExample extends Connector {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected final void doUpdate(final Context context, final Intent intent)
-			throws WebSMSException {
+	protected final void doUpdate(final Context context, final Intent intent) {
 		// TODO: update account balance
 		Log.i(TAG, "update");
 		// See doBootstrap() for more details.
@@ -109,8 +107,7 @@ public class ConnectorExample extends Connector {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected final void doSend(final Context context, final Intent intent)
-			throws WebSMSException {
+	protected final void doSend(final Context context, final Intent intent) {
 		// TODO: send a message provided by intent
 		Log.i(TAG, "send with sender "
 				+ Utils.getSender(context, new ConnectorCommand(intent)
