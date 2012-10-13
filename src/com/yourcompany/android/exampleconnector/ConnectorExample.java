@@ -25,10 +25,10 @@ import android.preference.PreferenceManager;
 import de.ub0r.android.websms.connector.common.Connector;
 import de.ub0r.android.websms.connector.common.ConnectorCommand;
 import de.ub0r.android.websms.connector.common.ConnectorSpec;
+import de.ub0r.android.websms.connector.common.ConnectorSpec.SubConnectorSpec;
 import de.ub0r.android.websms.connector.common.Log;
 import de.ub0r.android.websms.connector.common.Utils;
 import de.ub0r.android.websms.connector.common.WebSMSException;
-import de.ub0r.android.websms.connector.common.ConnectorSpec.SubConnectorSpec;
 
 /**
  * Receives commands coming as broadcast from WebSMS.
@@ -46,8 +46,7 @@ public class ConnectorExample extends Connector {
 	public final ConnectorSpec initSpec(final Context context) {
 		final String name = context.getString(R.string.connector_example_name);
 		ConnectorSpec c = new ConnectorSpec(name);
-		c.setAuthor(// .
-				context.getString(R.string.connector_example_author));
+		c.setAuthor(context.getString(R.string.connector_example_author));
 		c.setBalance(null);
 		c.setCapabilities(ConnectorSpec.CAPABILITIES_BOOTSTRAP
 				| ConnectorSpec.CAPABILITIES_UPDATE
@@ -109,9 +108,10 @@ public class ConnectorExample extends Connector {
 	@Override
 	protected final void doSend(final Context context, final Intent intent) {
 		// TODO: send a message provided by intent
-		Log.i(TAG, "send with sender "
-				+ Utils.getSender(context, new ConnectorCommand(intent)
-						.getDefSender()));
+		Log.i(TAG,
+				"send with sender "
+						+ Utils.getSender(context,
+								new ConnectorCommand(intent).getDefSender()));
 		// See doBootstrap() for more details.
 	}
 }
